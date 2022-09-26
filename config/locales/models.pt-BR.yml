@@ -4,7 +4,7 @@
       admin:
         one: Administrador
         other: Administradores
-      profile:
+      user:
         one: Perfil
         other: Perfis
     attributes:
@@ -13,7 +13,7 @@
         email: E-mail
         created_at: Criado em
         updated_at: Atualizado em
-      profile:
+      user:
         id: Código
         email: E-mail
         created_at: Criado em
