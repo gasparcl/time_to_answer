@@ -1,0 +1,45 @@
+<h2>Admin Profile <%= action_message %> </h2>
+
+<hr/>
+
+<div class="row pt-2 px-3">
+   <div class="col-lg-12">
+      <div class="row">
+      
+         <% if @admin.errors.any? %>
+            <div class="alert alert-dismissible alert-danger fade show" role="alert">
+               <ul>
+                  <% @admin.errors.full_messages.each do |error| %>
+                     <li>
+                        <%= error %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     </li>
+                  <% end %>
+               </ul>
+            </div>
+         <% end %>
+
+         <div class="col-lg-6 py-4 border rounded-2 bg-light">
+            <%= form_with(model: [ :admins_backoffice, @admin ], local:true) do |form| %>
+               <div class="form_group">
+                  <%= form.label :email, class:"form-label" %>
+                  <%= form.text_field :email, class:"form-control mb-3", placeholder:"Admin's e-mail" %>
+               </div>
+               
+               <div class="form_group">
+                  <%= form.label :password, class:"form-label" %>
+                  <%= form.password_field :password, class:"form-control mb-3", placeholder:"Password" %>
+               </div>
+               
+               <div class="form_group">
+                  <%= form.label :password_confirmation, class:"form-label" %>
+                  <%= form.password_field :password_confirmation, class:"form-control mb-3", placeholder:"Password confirmation" %>
+               </div>
+
+               <button type="submit" class="btn col-12 btn-success">Save</button>
+
+            <% end %>
+         </div>
+      </div>
+   </div>
+</div>

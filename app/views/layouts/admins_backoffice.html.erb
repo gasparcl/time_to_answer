@@ -5,12 +5,33 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application'%>
+    <%= stylesheet_link_tag    'admins_backoffice'%>
+    
   </head>
 
   <body>
-    <h1>LAYOUT ADMINS BACKOFFICE</h1>
-    <%= yield %>
+    <div class='container-fluid p-4'>
+      <h1>LAYOUT ADMINS BACKOFFICE</h1>
+      
+      <div class='container-md py-5'>
+        <%= yield %>
+      </div>
+      
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_include_tag 'admins_backoffice' %>
+
+    </div>
+
+    <% if notice %>
+      <%= javascript_tag do %>
+        $.bootstrapGrowl("<%= notice %>", {
+          type: 'success',
+          align: 'right',
+          allow_dismiss: false,
+          stackup_spacing: 10
+        });
+      <% end %>
+    <% end %>
   </body>
 </html>

@@ -11,10 +11,14 @@
       admin:
         id: Código
         email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de senha
         created_at: Criado em
         updated_at: Atualizado em
       user:
         id: Código
         email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de senha
         created_at: Criado em
         updated_at: Atualizado em
