@@ -1,0 +1,42 @@
+<h2>Subjects/Area <%= action_message %> </h2>
+
+<hr/>
+
+<div class="row pt-2 px-3">
+   <div class="col-lg-12">
+      <div class="row">
+      
+         <% if @subject.errors.any? %>
+            <div class="alert alert-dismissible alert-danger fade show" role="alert">
+               <ul>
+                  <% @subject.errors.full_messages.each do |error| %>
+                     <li>
+                        <%= error %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     </li>
+                  <% end %>
+               </ul>
+            </div>
+         <% end %>
+
+         <div class="col-lg-6 py-4 border rounded-2 bg-light">
+            <%= form_with(model: [ :admins_backoffice, @subject ], local:true) do |form| %>
+               <div class="form_group">
+                  <%= form.label :description, class:"form-label" %>
+                  <%= form.text_field :description, class:"form-control mb-3", placeholder:"Subject/Area description" %>
+               </div>
+
+               <div class="d-flex gap-2 align-items-center justify-content-between">
+                  <%= render partial: 'layouts/shared/back-button',
+                  locals: {path_location: admins_backoffice_subjects_path} %>
+
+                  <button type="submit" class="btn btn-sm btn-success col-3">Save</button>
+               </div>
+               
+
+            <% end %>
+         </div>
+        
+      </div>
+   </div>
+</div>

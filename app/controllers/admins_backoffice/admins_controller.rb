@@ -3,7 +3,8 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   before_action :set_admin, only: [:edit, :update, :destroy]
   
   def index
-    @admins = Admin.all #Variáveis de instância dentro de controllers são chamadas de variáveis de sessão, para serem utilizadas nas views...
+    #Variáveis de instância dentro de controllers são chamadas de variáveis de sessão, para serem utilizadas nas views...
+    @admins = Admin.all.page(params[:page]) #O método per define quantos objetos por página 
   end
 
   def new
@@ -13,7 +14,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   def create
     @admin = Admin.new(get_params_admin)
     if @admin.save
-      redirect_to admins_backoffice_admins_path, notice: "Admin account has been created"
+      redirect_to admins_backoffice_admins_path, notice: "Account has been created"
     else 
       render :new
     end
@@ -24,7 +25,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
 
   def update
     if @admin.update(get_params_admin)
-      redirect_to admins_backoffice_admins_path, notice: "Admin account has been updated"
+      redirect_to admins_backoffice_admins_path, notice: "Account has been updated"
     else 
       render :edit
     end
@@ -32,7 +33,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
 
   def destroy
     if @admin.destroy
-      redirect_to admins_backoffice_admins_path, notice: "Admin account has been deleted"
+      redirect_to admins_backoffice_admins_path, notice: "Account has been deleted"
     else 
       render :index
     end

@@ -8,6 +8,9 @@ gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 gem 'tty-spinner'
 gem 'faker'
 gem 'coffee-script-source'
+gem 'kaminari', '~> 1.0', '>= 1.0.1'
+gem 'open-uri'
+gem 'bootstrap', '~> 4.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'

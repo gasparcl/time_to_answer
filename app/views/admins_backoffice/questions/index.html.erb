@@ -1,0 +1,52 @@
+<h1>Questions List</h1>
+<hr/>
+<div class='table-responsive pt-2'>
+   <table class='table table-striped table-bordered table-hover p-5'>
+      <thead>
+         <tr>
+            <th>#</th>
+            <th>Description</th>
+            <th>Subject/Area</th>
+            <th>Created at</th>
+            <th class="text-center">
+               <%= link_to new_admins_backoffice_question_path, class:"btn btn-sm btn-success btn-circle col-10", title:"Add question" do %>
+                     <i class='fa fa-plus'></i>
+               <% end %>
+            </th>
+         </tr>
+      </thead>
+
+      <tbody>
+         <% @questions.each do |question| %>
+            <tr>
+               <td>
+                  <%= question.id %>
+               </td>
+               <td>
+                  <%= question.description.truncate(70) %> <%# O método truncate limita a string a um número de caracteres recebido como parâmetro %>
+               </td>
+               <td>
+                  <%= question.subject.description.truncate(30) %>
+               </td>
+               <td>
+                  <%= question.created_at %>
+               </td>
+               <td class="text-center" style='width: 100px;'>
+                  <%= link_to edit_admins_backoffice_question_path(question), class:"btn btn-sm btn-primary btn-circle", title:"Edit question" do %>
+                     <i class='fa fa-edit'></i>
+                  <% end %>
+
+                  <%= link_to admins_backoffice_question_path(question), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-sm btn-outline-danger btn-circle", title:"Delete question" do %>
+                     <i class='fa fa-minus'></i>
+                  <% end %>
+               </td>
+            </tr>
+         <% end %>
+         
+      </tbody>
+   </table>
+
+   <div class="d-flex justify-content-center">
+      <%= paginate @questions %>
+   </div>
+</div>
