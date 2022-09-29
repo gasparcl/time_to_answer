@@ -1,0 +1,14 @@
+"pt-BR":
+  buttons:
+    cancel: Cancelar
+    save: Salvar
+  confirmations:
+    delete: Confirma a exclusão?
+  navbar:
+    dashboard: Dashboard
+    admins: Administradores
+    subjects: Assuntos/Áreas
+    questions: Perguntas
+    logout: Sair
+  messages:
+    list: Lista de %{model}

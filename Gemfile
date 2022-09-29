@@ -9,6 +9,7 @@ gem 'tty-spinner'
 gem 'faker'
 gem 'coffee-script-source'
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
+gem 'kaminari-i18n'
 gem 'open-uri'
 gem 'bootstrap', '~> 4.6'
 

@@ -30,7 +30,7 @@
                <div class="form_group mb-3">
                   <%= form.label :subject, class:"form-label" %>
                   <%# collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {}, :prompt) public %>
-                  <%= form.collection_select(:subject_id, Subject.all.order(:description), :id, :description, {}, { class:"form-control" } ) %> <%# Nesse caso, o objeto é implicito, pois é o próprio form, do form.collection_select %>
+                  <%= form.collection_select(:subject_id, @subjects.order(:description), :id, :description, {}, { class:"form-control" } ) %> <%# Nesse caso, o objeto é implicito, pois é o próprio form, do form.collection_select %>
                   
                </div>
 
@@ -40,7 +40,7 @@
                   <%= render partial: 'layouts/shared/back-button',
                   locals: {path_location: admins_backoffice_questions_path} %>
 
-                  <button type="submit" class="btn btn-sm btn-success col-3">Save</button>
+                  <button type="submit" class="btn btn-sm btn-success col-3"><%= t('buttons.save') %></button>
                </div>
                
 
