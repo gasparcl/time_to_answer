@@ -31,7 +31,14 @@
                   <%= form.label :subject, class:"form-label" %>
                   <%# collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {}, :prompt) public %>
                   <%= form.collection_select(:subject_id, @subjects.order(:description), :id, :description, {}, { class:"form-control" } ) %> <%# Nesse caso, o objeto é implicito, pois é o próprio form, do form.collection_select %>
-                  
+               </div>
+
+               <div id="answers">
+                  <%= form.fields_for :answers do |answer| %> <%# .fields_for é utilizado no form para indicar um form 'aninhado' de campos 'aninhados' de outra     tabela, nesse caso, a tabela answer, representada pelo símbolo :answers, pois possui relacionamento com a tabela do form pai (belongs_to) %>
+                     <%= render partial: "answer_fields", locals: { f: answer } %>
+                  <% end %>
+
+                  <%= link_to_add_association t('buttons.add.answer'), form, :answers  %>
                </div>
 
                <hr/>

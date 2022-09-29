@@ -2,6 +2,9 @@
   buttons:
     cancel: Cancelar
     save: Salvar
+    add:
+      answer: Adicionar Resposta
+    remove: Remover
   confirmations:
     delete: Confirma a exclusão?
   navbar:
@@ -10,5 +13,9 @@
     subjects: Assuntos/Áreas
     questions: Perguntas
     logout: Sair
+    brand: Backoffice Administrativo
   messages:
     list: Lista de %{model}
+  form:
+    checkbox:
+      correct?: Correta?

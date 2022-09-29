@@ -6,6 +6,7 @@
          <tr>
             <th>#</th>
             <th><%= translate_attr(@questions, :description) %></th>
+            <th><%= translate_attr(@questions, :answers) %></th>
             <th><%= translate_attr(@questions, :subject) %></th>
             <th><%= translate_attr(@questions, :created_at) %></th>
             <th class="text-center">
@@ -24,6 +25,9 @@
                </td>
                <td>
                   <%= question.description.truncate(70) %> <%# O método truncate limita a string a um número de caracteres recebido como parâmetro %>
+               </td>
+               <td>
+                  <%= question.answers.count %>
                </td>
                <td>
                   <%= question.subject.description.truncate(30) %>

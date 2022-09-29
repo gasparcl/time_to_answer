@@ -39,5 +39,6 @@
         description: Descrição
         subject: Assunto
         subject_id: Assunto
+        answers: Respostas
         created_at: Criado em
         updated_at: Atualizado em

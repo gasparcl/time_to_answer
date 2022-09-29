@@ -12,6 +12,7 @@ gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'kaminari-i18n'
 gem 'open-uri'
 gem 'bootstrap', '~> 4.6'
+gem 'cocoon'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
@@ -59,6 +60,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'awesome_print'
+  gem 'rails_db', '2.2.1'
 end
 
 group :test do

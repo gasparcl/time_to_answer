@@ -6,11 +6,27 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag    'site' %>
   </head>
 
   <body>
-    <h1>LAYOUT SITE</h1>
-    <%= yield %>
+    <div class='container-fluid pe-0 ps-0'>
+      
+      <div class='d-flex justify-content-between p-4'>
+        <h1>LAYOUT SITE</h1>
+        <div class="d-flex gap-3">
+          <%= link_to 'Admins Login', admins_backoffice_welcome_index_path %>
+          <%= link_to 'Users Login', users_backoffice_welcome_index_path %>
+        </div>
+      </div>
+      
+      <div class='container-md py-5'>
+        <%= yield %>
+      </div>
+
+    </div>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'site' %>
   </body>
 </html>

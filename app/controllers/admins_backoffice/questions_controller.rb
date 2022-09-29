@@ -50,7 +50,7 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
 
    def get_params_question # require from form body 
       params.require(:question)
-            .permit(:description, :subject_id)
+            .permit(:description, :subject_id, answers_attributes: [:id, :description, :correct, :_destroy])
    end
 
    def set_question

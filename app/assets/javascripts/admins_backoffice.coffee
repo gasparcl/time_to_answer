@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 //= require jquery/dist/jquery
-//= require jquery-mousewheel/jquery.mousewheel
 //= require bootstrap/dist/js/bootstrap
 //= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl
+//= require cocoon

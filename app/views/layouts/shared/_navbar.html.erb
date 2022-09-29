@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-5 py-4 justify-content-between align-items-center">
    <div>
-      <%= link_to 'Time To Answer', admins_backoffice_welcome_index_path, class:"navbar-brand" %>
+      <%= link_to t('navbar.brand'), admins_backoffice_welcome_index_path, class:"navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,26 +10,26 @@
          <li class="nav-item active">
             <%= link_to admins_backoffice_welcome_index_path, class:"nav-link" do %>
                <i class="fa fa-dashboard fa-fw"></i>
-               Dashboard
+               <%= t('navbar.dashboard') %>
                <span class="sr-only">(current)</span>
             <% end %>
          </li>
          <li class="nav-item">
             <%= link_to admins_backoffice_admins_path, class:"nav-link" do %>
                <i class="fa fa-users fa-fw"></i>
-               Admins
+               <%= t('navbar.admins') %>
             <% end %>
          </li>
          <li class="nav-item">
             <%= link_to admins_backoffice_subjects_path, class:"nav-link" do %>
                <i class="fa fa-file-text-o fa-fw"></i>
-               Subjects/Areas
+               <%= t('navbar.subjects') %>
             <% end %>
          </li>
          <li class="nav-item">
             <%= link_to admins_backoffice_questions_path, class:"nav-link" do %>
                <i class="fa fa-th-list fa-fw"></i>
-               Questions
+               <%= t('navbar.questions') %>
             <% end %>
          </li>
 
@@ -37,7 +37,7 @@
          <li class="nav-item">
             <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link" do %>
                <i class="fa fa-sign-out fa-fw"></i>
-               Log out
+               <%= t('navbar.logout') %>
             <% end %>
          </li>
       </ul>
