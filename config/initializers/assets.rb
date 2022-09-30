@@ -17,6 +17,10 @@ Rails.application.config.assets.precompile += %w( admins_backoffice.js admins_ba
                                                    users_backoffice.js users_backoffice.css
                                                    admin_devise.js admin_devise.css 
                                                    user_devise.js user_devise.css 
-                                                   site.js site.css )
+                                                   site.js site.css
+                                                   )
 
 Rails.application.config.assets.precompile += %w( jquery/dist/jquery.js )
+Rails.application.config.assets.precompile += %w( bootstrap/dist/js/bootstrap.bundle )
+Rails.application.config.assets.precompile += %w( bootstrap/dist/js/bootstrap )
+Rails.application.config.assets.precompile += %w( @popperjs/core/dist/cjs/popper )

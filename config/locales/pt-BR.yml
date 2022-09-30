@@ -12,7 +12,10 @@
     admins: Administradores
     subjects: Assuntos/Áreas
     questions: Perguntas
+    login: Entrar
+    signup: Cadastrar-se
     logout: Sair
+    profile: Perfil
     brand: Backoffice Administrativo
   messages:
     list: Lista de %{model}
