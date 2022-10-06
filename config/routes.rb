@@ -13,10 +13,12 @@ Rails.application.routes.draw do
     resources :subjects
     resources :questions
   end
-  devise_for :admins
+  devise_for :admins, skip: [:registrations]
  
   namespace :users_backoffice do
     get 'welcome/index'
+    get 'profile', to: 'profile#edit'
+    patch 'profile', to: 'profile#update'
   end
   devise_for :users
 

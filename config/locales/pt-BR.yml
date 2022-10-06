@@ -8,6 +8,7 @@
   confirmations:
     delete: Confirma a exclusão?
   navbar:
+    home: Início
     dashboard: Dashboard
     admins: Administradores
     users: Usuários
@@ -16,7 +17,8 @@
     login: Entrar
     signup: Cadastrar-se
     logout: Sair
-    profile: Perfil
+    profile: Meu perfil
+    edit_profile: Editar perfil
     brand: Backoffice %{model}
     search:
       descr: Buscar
