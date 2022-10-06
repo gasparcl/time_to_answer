@@ -85,6 +85,15 @@ namespace :dev do
     end
   end
 
+  desc "Reset subjects counter"
+  task reset_subject_counter: :environment do
+    show_spinner("Reseting subject counters") do
+      Subject.find_each do |subject| # o .find_each é exatamente a mesma coisa que o .all.each
+        Subject.reset_counters(subject.id, :questions)
+      end
+    end
+  end
+
   # ╔═╗╦═╗╦╦  ╦╔═╗╔╦╗╔═╗  ╔╦╗╔═╗╔╦╗╦ ╦╔═╗╔╦╗╔═╗
   # ╠═╝╠╦╝║╚╗╔╝╠═╣ ║ ║╣   ║║║║╣  ║ ╠═╣║ ║ ║║╚═╗
   # ╩  ╩╚═╩ ╚╝ ╩ ╩ ╩ ╚═╝  ╩ ╩╚═╝ ╩ ╩ ╩╚═╝═╩╝╚═╝

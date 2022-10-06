@@ -1,0 +1,39 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary px-5 py-4 justify-content-between align-items-center shadow">
+   <div>
+      <b><%= link_to "Time to Answer",  root_path, class:"navbar-brand" %></b>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+   </div>
+   <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      <% unless user_signed_in? %>
+         <li class="nav-item">
+            <b><%= link_to t('navbar.login'), new_user_session_path, class:"nav-link" %></b>
+         </li>
+         <li class="nav-item">
+            <b><%= link_to t('navbar.signup'),  new_user_registration_path, class:"nav-link" %></b>
+         </li>
+      <% else %>
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+            <%= current_user.email %>
+            </a>
+            <ul class="dropdown-menu ps-3">
+            <li>
+               <%= link_to users_backoffice_welcome_index_path do %>
+                  <i class="fa fa-user fa-fw"></i> <%= t('navbar.profile') %>
+               <% end %>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+               <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fa fa-sign-out fa-fw"></i> <%= t('navbar.logout') %>
+               <% end %>
+            </li>
+            </ul>
+         </li>
+      <% end %>
+      </ul>
+   </div>
+</nav>

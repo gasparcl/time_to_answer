@@ -10,15 +10,27 @@
   navbar:
     dashboard: Dashboard
     admins: Administradores
+    users: Usuários
     subjects: Assuntos/Áreas
     questions: Perguntas
     login: Entrar
     signup: Cadastrar-se
     logout: Sair
     profile: Perfil
-    brand: Backoffice Administrativo
+    brand: Backoffice %{model}
+    search:
+      descr: Buscar
+      placeholder: Pesquisar questão...
   messages:
     list: Lista de %{model}
+  site_layout:
+    welcome: Bem vinda(o)
+    email: "%{current_user_email}"
+    logged: Você está logada(o)!
+    posts_list: Últimas questões cadastradas
+    search:
+      result: Foram encontradas %{questions_count} perguntas como resultados para a pesquisa "%{search_term}"...
+      subject: Mostrando questões sobre o assunto "%{subject}"...
   form:
     checkbox:
       correct?: Correta?

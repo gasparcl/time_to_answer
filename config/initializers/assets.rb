@@ -14,13 +14,10 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # app/assets
 Rails.application.config.assets.precompile += %w( admins_backoffice.js admins_backoffice.css
-                                                   users_backoffice.js users_backoffice.css
-                                                   admin_devise.js admin_devise.css 
-                                                   user_devise.js user_devise.css 
-                                                   site.js site.css
-                                                   )
+                                                  users_backoffice.js users_backoffice.css
+                                                  admin_devise.js admin_devise.css
+                                                  user_devise.js user_devise.css
+                                                  site.js site.css )
 
+# /vendor/assets
 Rails.application.config.assets.precompile += %w( jquery/dist/jquery.js )
-Rails.application.config.assets.precompile += %w( bootstrap/dist/js/bootstrap.bundle )
-Rails.application.config.assets.precompile += %w( bootstrap/dist/js/bootstrap )
-Rails.application.config.assets.precompile += %w( @popperjs/core/dist/cjs/popper )

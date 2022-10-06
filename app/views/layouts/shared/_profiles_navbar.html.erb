@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-5 py-4 justify-content-between align-items-center">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary px-5 py-4 justify-content-between align-items-center">
    <div>
-      <%= link_to t('navbar.brand'), admins_backoffice_welcome_index_path, class:"navbar-brand" %>
+      <%= link_to t('navbar.brand', model: model), brand_index_path, class:"navbar-brand" %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
@@ -8,37 +8,43 @@
    <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
       <ul class="navbar-nav">
          <li class="nav-item active">
-            <%= link_to admins_backoffice_welcome_index_path, class:"nav-link" do %>
+            <%= link_to dashboard_index_path, class:"nav-link" do %>
                <i class="fa fa-dashboard fa-fw"></i>
                <%= t('navbar.dashboard') %>
                <span class="sr-only">(current)</span>
             <% end %>
          </li>
          <li class="nav-item">
-            <%= link_to admins_backoffice_admins_path, class:"nav-link" do %>
+            <%= link_to currents_backoffice_path, class:"nav-link" do %>
                <i class="fa fa-users fa-fw"></i>
-               <%= t('navbar.admins') %>
+               <%= model_name %>
             <% end %>
          </li>
          <li class="nav-item">
-            <%= link_to admins_backoffice_subjects_path, class:"nav-link" do %>
+            <%= link_to currents_backoffice_subjects_path, class:"nav-link" do %>
                <i class="fa fa-file-text-o fa-fw"></i>
                <%= t('navbar.subjects') %>
             <% end %>
          </li>
          <li class="nav-item">
-            <%= link_to admins_backoffice_questions_path, class:"nav-link" do %>
+            <%= link_to currents_backoffice_questions_path, class:"nav-link" do %>
                <i class="fa fa-th-list fa-fw"></i>
                <%= t('navbar.questions') %>
             <% end %>
          </li>
 
          <%# LOG OUT %>
-         <li class="nav-item">
-            <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link" do %>
-               <i class="fa fa-sign-out fa-fw"></i>
-               <%= t('navbar.logout') %>
-            <% end %>
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+               <%= current_email %>
+            </a>
+            <ul class="dropdown-menu">
+               <li>
+                  <%= link_to destroy_current_session_path, method: :delete, class:"ps-3" do %>
+                     <i class="fa fa-sign-out fa-fw"></i> <%= t('navbar.logout') %>
+                  <% end %>
+               </li>
+            </ul>
          </li>
       </ul>
    </div>      

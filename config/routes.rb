@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   
+  namespace :site do
+    get 'welcome/index'
+    get 'search', to: 'search#questions'
+    get 'subject/:subject_id/:subject', to: 'search#subject', as: 'search_subject' # o as define o nome do path da rota, diferente do nome padrão definido, após sua criação.
+    post 'answer', to: 'answer#question'
+  end
+  
   namespace :admins_backoffice do
     get 'welcome/index'
     resources :admins #name of the controller - resources REST - CREATE, READ, UPDATE, DELETE
@@ -7,11 +14,7 @@ Rails.application.routes.draw do
     resources :questions
   end
   devise_for :admins
-
-  namespace :site do
-    get 'welcome/index'
-  end
-  
+ 
   namespace :users_backoffice do
     get 'welcome/index'
   end

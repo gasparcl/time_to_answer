@@ -1,0 +1,25 @@
+var currentButton = document.getElementById("submit_<%= @answer.question_id %>");
+
+currentButton.classList.remove("btn-outline-secondary"); 
+currentButton.classList.remove("btn-success"); 
+currentButton.classList.remove("btn-danger"); 
+
+if (<%= @answer.correct %>) {
+   currentButton.classList.add("btn-success")
+   $.bootstrapGrowl("Você acertou! \\o/", {
+      type: 'success', // (null, 'info', 'danger', 'success')
+      align: 'right', // ('left', 'right', or 'center')
+      width: 300,  // (integer, or 'auto')
+      allow_dismiss: true, // If true then will display a cross to close the popup.
+      stackup_spacing: 10 // spacing between consecutively stacked growls.
+   })
+} else {
+   currentButton.classList.add("btn-danger")
+   $.bootstrapGrowl("Você errou! :( Tente novamente!", {
+      type: 'danger', // (null, 'info', 'danger', 'success')
+      align: 'right', // ('left', 'right', or 'center')
+      width: 300,  // (integer, or 'auto')
+      allow_dismiss: true, // If true then will display a cross to close the popup.
+      stackup_spacing: 10 // spacing between consecutively stacked growls.
+   })
+}

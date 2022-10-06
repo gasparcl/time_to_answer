@@ -6,3 +6,25 @@
  *= require bootstrap/dist/css/bootstrap
  *= require font-awesome/css/font-awesome
  */
+
+a.close {
+   position: absolute;
+   right: 1rem;
+   bottom: calc(50% - 9px);
+   text-decoration: none;
+   color: rgba(0, 0, 0, 0.25);
+   font-size: 2rem;
+   height: 20px;
+   border: 2px solid rgba(0, 0, 0, 0.15);
+   line-height: 16px;
+   border-radius: 1rem;
+   width: 20px;
+   text-align: center;
+   font-family: inherit;
+   transition: all .25s;
+}
+
+a.close:hover {
+   color: rgba(255, 255, 255, 0.7);
+   background: rgba(0, 0, 0, 0.25);
+}
