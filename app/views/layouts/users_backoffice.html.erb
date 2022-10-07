@@ -14,34 +14,51 @@
 
   <body>
     <div class='container-fluid pe-0 ps-0'>
-      <%= render partial: 'layouts/shared/profiles_navbar', 
-                  locals: { brand_index_path: users_backoffice_welcome_index_path,
-                            model: t('navbar.users'),
-                            dashboard_index_path: users_backoffice_welcome_index_path,
-                            model_name: t('navbar.users'),
-                            currents_backoffice_path: '#',
-                            currents_backoffice_subjects_path: '#',
-                            currents_backoffice_questions_path: '#',
-                            current_email: current_user.email,
-                            destroy_current_session_path: destroy_user_session_path
-                          } %>
+      <%= render partial: 'layouts/shared/user_navbar' %>
 
       <div class='container-md py-5'>
         <%= yield %>
       </div>
-      
-      <%= javascript_include_tag 'application' %>
-      <%= javascript_include_tag 'users_backoffice' %>
-
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="avatarModal" tabindex="-1" role="dialog" aria-labelledby="avatarModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <%= form_with(url: users_backoffice_profile_path, model: current_user, class:"form-horizontal form-label-left") do |form| %>
+          <div class="modal-header justify-content-center">
+            <h4 class="modal-title" id="avatarModalLabel">Avatar</h4>
+          </div>
+          <div class="modal-body">
+            <%= form.fields_for :user_profile do |profile_form|  %>
+              <div class="form-group">
+                <div class="d-flex flex-column align-items-center justify-content-center gap-3">
+                  <%= image_tag(avatar_url, alt:"...", id:"imgAvatarLg", class:"img-circle profile__img-modal shadow-sm") %>
+                  <%= profile_form.file_field :avatar %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button class="btn btn-outline-danger" data-dismiss="modal" aria-label="Close">Fechar</button>
+            <%= form.submit "Salvar", class:"btn btn-success" %>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- /Modal -->
+     
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'users_backoffice' %>
 
     <% if notice %>
       <%= javascript_tag do %>
         $.bootstrapGrowl("<%= notice %>", {
-          type: 'success',
-          align: 'right',
-          allow_dismiss: false,
-          stackup_spacing: 10
+          type: 'success', // (null, 'info', 'danger', 'success')
+          align: 'right', // ('left', 'right', or 'center')
+          allow_dismiss: true, // If true then will display a cross to close the popup.
+          stackup_spacing: 10 // spacing between consecutively stacked growls.
         });
       <% end %>
     <% end %>

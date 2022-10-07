@@ -6,6 +6,9 @@
  *= require bootstrap/dist/css/bootstrap
  *= require font-awesome/css/font-awesome
  */
+a {
+   text-decoration: none;
+}
 
 a.close {
    position: absolute;

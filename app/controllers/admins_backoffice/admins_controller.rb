@@ -25,6 +25,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
 
   def update
     if @admin.update(get_params_admin)
+      bypass_sign_in(@admin)
       redirect_to admins_backoffice_admins_path, notice: "Account has been updated"
     else 
       render :edit

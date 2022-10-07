@@ -19,5 +19,8 @@ Rails.application.config.assets.precompile += %w( admins_backoffice.js admins_ba
                                                   user_devise.js user_devise.css
                                                   site.js site.css )
 
+# /lib/assets
+Rails.application.config.assets.precompile += %w( img.jpg )
+
 # /vendor/assets
 Rails.application.config.assets.precompile += %w( jquery/dist/jquery.js )

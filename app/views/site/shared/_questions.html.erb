@@ -20,17 +20,27 @@
       <h4 class="mb-0 text-primary">
          <b><%= search_card_msg %></b>
       </h4>
-       
+      
       <div class="mt-4 mb-2 px-3 w-100">
          <%= form_with(url: site_search_path, local: true, method: :get, class:"d-flex gap-2") do |form| %>
-            <%= form.text_field :term, class:"form-control mr-sm-2", placeholder: t('navbar.search.placeholder') %>
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
-            <span class="d-flex justify-content-center align-items-center gap-1">
-               <i class="fa fa-search fa-fw"></i> 
-               <%= t('navbar.search.descr') %> 
-            </span>
-            </button>
-         <% end %>
+            <% unless user_signed_in? %>
+               <%= form.text_field :term, class:"form-control mr-sm-2", placeholder: t('navbar.search.sign_off_placeholder'), disabled:"true" %>
+               <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" disabled>
+                  <span class="d-flex justify-content-center align-items-center gap-1">
+                     <i class="fa fa-search fa-fw"></i> 
+                     <%= t('navbar.search.descr') %> 
+                  </span>
+               </button>
+            <% else %>
+               <%= form.text_field :term, class:"form-control mr-sm-2", placeholder: t('navbar.search.placeholder') %>
+                  <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+                     <span class="d-flex justify-content-center align-items-center gap-1">
+                        <i class="fa fa-search fa-fw"></i> 
+                        <%= t('navbar.search.descr') %> 
+                     </span>
+                  </button>
+               <% end %>
+            <% end %>
       </div>
       </div>
    </div>
@@ -52,23 +62,38 @@
                      <%# O primeiro parâmetro do radio_button_tag é o name do elemento html e o segundo é o id do elemento html%>
                      <li class="list-group-item list-group-item-action form-check p-0">
                         <div class="d-flex gap-1 justify-content-start align-items-center" style="cursor: pointer;">
-                           <label class="form-check flex-grow-1 px-2 py-2" for="<%= "answer_id_#{answer.id}" %>" style="cursor: pointer;">
-                              <%= form.radio_button 'answer_id', answer.id, class:"form-check-input ms-2 me-3", style:"cursor: pointer;"%>  
-                              <%= answer.description %> 
-                           </label>
+                           <% unless user_signed_in? %>
+                              <label class="form-check flex-grow-1 px-2 py-2" for="<%= "answer_id_#{answer.id}" %>" style="cursor: not-allowed;">
+                                 <%= form.radio_button 'answer_id', answer.id, class:"form-check-input ms-2 me-3", style:"cursor: not-allowed;", disabled:"true"%>  
+                                 <%= answer.description %> 
+                              </label>
+                           <% else %>
+                              <label class="form-check flex-grow-1 px-2 py-2" for="<%= "answer_id_#{answer.id}" %>" style="cursor: pointer;">
+                                 <%= form.radio_button 'answer_id', answer.id, class:"form-check-input ms-2 me-3", style:"cursor: pointer;"%>  
+                                 <%= answer.description %> 
+                              </label>
+                           <% end %>
                         </div> 
                      </li> 
                   <% end %>
-                  <li class="list-unstyled mt-2 d-flex justify-content-end">
-                     <%= form.submit "Responder", class:"btn btn-outline-secondary", id: "submit_#{question.id}"  %>
-                  </li>
+                  <% unless user_signed_in? %>
+                     <li class="list-unstyled mt-2 d-flex justify-content-end">
+                        <%= form.submit "Responder", class:"btn btn-outline-secondary", id: "submit_#{question.id}", disabled:"true" %>
+                     </li>
+                  <% else %>
+                     <li class="list-unstyled mt-2 d-flex justify-content-end">
+                        <%= form.submit "Responder", class:"btn btn-outline-secondary", id: "submit_#{question.id}" %>
+                     </li>
+                  <% end %>
                </ul>
             </p>
          </div>
       </div>
    <% end %>
 <% end %>
-<%# PAGINATION %>
-<div class="d-flex justify-content-center">
-   <%= paginate @questions %>
-</div>
+<% if user_signed_in? %>
+   <%# PAGINATION %>
+   <div class="d-flex justify-content-center">
+      <%= paginate @questions %>
+   </div>
+<% end %>

@@ -2,3 +2,51 @@
  *= require bootstrap/dist/css/bootstrap
  *= require font-awesome/css/font-awesome
  */
+
+a {
+   text-decoration: none;
+}
+
+a.close {
+   position: absolute;
+   right: 1rem;
+   bottom: calc(50% - 9px);
+   text-decoration: none;
+   color: rgba(0, 0, 0, 0.25);
+   font-size: 2rem;
+   height: 20px;
+   border: 2px solid rgba(0, 0, 0, 0.15);
+   line-height: 16px;
+   border-radius: 1rem;
+   width: 20px;
+   text-align: center;
+   font-family: inherit;
+   transition: all .25s;
+}
+
+a.close:hover {
+   color: rgba(255, 255, 255, 0.7);
+   background: rgba(0, 0, 0, 0.25);
+}
+
+.img-circle {
+   border-radius: 50%;
+}
+
+.profile__img-nav {
+   max-height: 30px;
+   max-width: 30px;
+   width: auto;
+}
+
+.profile__img-edit {
+   max-height: 150px;
+   width: auto;
+   max-width: 150px;
+}
+
+.profile__img-modal {
+   max-height: 200px;
+   width: auto;
+   max-width: 200px;
+}

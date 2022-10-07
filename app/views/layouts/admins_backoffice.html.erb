@@ -14,17 +14,7 @@
 
   <body>
     <div class='container-fluid pe-0 ps-0'>
-      <%= render partial: 'layouts/shared/profiles_navbar', 
-                  locals: { brand_index_path: admins_backoffice_welcome_index_path,
-                            model: t('navbar.admins'),
-                            dashboard_index_path: admins_backoffice_welcome_index_path,
-                            model_name: t('navbar.admins'),
-                            currents_backoffice_path: admins_backoffice_admins_path,
-                            currents_backoffice_subjects_path: admins_backoffice_subjects_path,
-                            currents_backoffice_questions_path: admins_backoffice_questions_path,
-                            current_email: current_admin.email,
-                            destroy_current_session_path: destroy_admin_session_path
-                          } %>
+      <%= render partial: 'layouts/shared/admin_navbar' %>
       
       <div class='container-md py-5'>
         <%= yield %>

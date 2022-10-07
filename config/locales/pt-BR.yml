@@ -23,6 +23,7 @@
     search:
       descr: Buscar
       placeholder: Pesquisar questão...
+      sign_off_placeholder: Favor logar-se para buscar e responder questões...
   messages:
     list: Lista de %{model}
   site_layout:

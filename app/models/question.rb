@@ -7,7 +7,7 @@ class Question < ApplicationRecord
   accepts_nested_attributes_for :answers, reject_if: :all_blank, allow_destroy: true
   
   # Kaminari Pagination
-  paginates_per 15
+  paginates_per 10
 
   # ╔═╗╔═╗╔═╗╔═╗╔═╗╔═╗
   # ╚═╗║  ║ ║╠═╝║╣ ╚═╗ # Utilizados apenas como método de pesquisa no Banco de dados

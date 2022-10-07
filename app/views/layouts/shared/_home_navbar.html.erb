@@ -15,20 +15,21 @@
             <b><%= link_to t('navbar.signup'),  new_user_registration_path, class:"nav-link" %></b>
          </li>
       <% else %>
-         <li class="nav-item dropdown">
+         <li class="nav-item dropdown d-flex">
+            <%= image_tag avatar_url, alt:"...", class:"img-circle profile__img-nav shadow-sm mt-1", id:"imgAvatarNav"%>
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
             <%= current_user.email %>
             </a>
-            <ul class="dropdown-menu ps-3">
+            <ul class="dropdown-menu mt-5">
             <li>
                <%= link_to users_backoffice_welcome_index_path do %>
-                  <i class="fa fa-user fa-fw"></i> <%= t('navbar.profile') %>
+                  <i class="fa fa-user fa-fw px-2"></i> <%= t('navbar.profile') %>
                <% end %>
             </li>
-            <li role="separator" class="divider"></li>
+            <div class="dropdown-divider"></div>
             <li>
                <%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fa fa-sign-out fa-fw"></i> <%= t('navbar.logout') %>
+                  <i class="fa fa-sign-out fa-fw px-2"></i> <%= t('navbar.logout') %>
                <% end %>
             </li>
             </ul>
