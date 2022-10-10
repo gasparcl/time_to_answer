@@ -1,2 +1,49 @@
-<h1>UsersBackoffice::Welcome#index</h1>
-<p>Find me in app/views/users_backoffice/welcome/index.html.erb</p>
+<h1><%= t('user_layout.home.profile_stats') %></h1>
+<hr>
+<div class="d-flex justify-content-between align-items-center gap-4">
+   <div class="card my-3 shadow-sm flex-fill">
+      <div class="card-header px-3 py-4">
+         <h5 class="mb-0 py-1 d-flex align-items-center justify-content-between gap-2">
+            <b class="display-5 px-3 border border-3 border-dark border-opacity-25 rounded-3"><%= @user_statistics.total_questions %></b>
+            <i class="fa fa-comment-o fa-2x text-dark border border-3 border-dark rounded-circle p-2 d-flex align-items-center justify-content-center" style="height: 60px; width: 60px;"></i>
+         </h5>
+      </div>
+      <div class="card-body px-4 py-4">
+         <h3>Total</h3>
+         <p class="card-text px-3">
+            Quantidade total de questões respondidas.
+         </p>
+      </div>
+   </div>
+
+   <div class="card my-2 shadow-sm flex-fill">
+      <div class="card-header px-3 py-4">
+         <h5 class="mb-0 py-1 d-flex align-items-center justify-content-between gap-2 ">
+            <b class="display-5 px-3 border border-3 border-dark border-opacity-25 rounded-3"><%= @user_statistics.right_questions %></b>
+            <i class="fa fa-check-square-o fa-2x text-success border border-3 border-success rounded-circle p-2 d-flex align-items-center justify-content-center" style="height: 60px; width: 60px;"></i>
+         </h5>
+      </div>
+      <div class="card-body px-4 py-4">
+         <h3>Corretas</h3>
+         <p class="card-text px-3">
+            Quantidade total de questões corretas.
+         </p>
+      </div>
+   </div>
+
+   <div class="card my-2 shadow-sm flex-fill">
+      <div class="card-header px-3 py-4">
+         <h5 class="mb-0 py-1 d-flex align-items-center justify-content-between gap-2">
+            <b class="display-5 px-3 border border-3 border-dark border-opacity-25 rounded-3"><%= @user_statistics.wrong_questions %></b>
+            <i class="fa fa-close text-danger fa-2x border border-3 border-danger rounded-circle p-2 d-flex align-items-center justify-content-center" style="height: 60px; width: 60px;"></i>
+         </h5>
+      </div>
+      <div class="card-body px-4 py-4">
+         <h3>Erradas</h3>
+         <p class="card-text px-3">
+            Quantidade total de questões incorretas.
+         </p>
+      </div>
+   </div>
+
+</div>

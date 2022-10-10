@@ -16,6 +16,23 @@ en:
     brand: Admins Backoffice
   messages:
     list: "%{model} List"
+  # LAYOUTS
+  site_layout:
+    header:
+      welcome: "Hello, welcome to Time to Answer!"
+      main_descr: "This is a simple webapp about Q&A that includes a lot of interesting subjects and areas."
+      sign_message: Create your account or sign in to start interacting, maybe seeking for answers...
+    welcome: Welcome
+    email: "%{current_user_email}"
+    logged: You are signed in!
+    posts_list: Last questions registered
+    search:
+      result: Foram encontradas %{questions_count} perguntas como resultados para a pesquisa "%{search_term}"...
+      subject: Mostrando questões sobre o assunto "%{subject}"...
+    signed_off_warning: Para ver mais questões, crie ou acesse sua conta...
+    buttons:
+      sign_in: Logar
+      sign_up: Criar conta
   form:
     checkbox:
       correct?: Correct?

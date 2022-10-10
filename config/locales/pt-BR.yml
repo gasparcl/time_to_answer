@@ -8,7 +8,7 @@
   confirmations:
     delete: Confirma a exclusão?
   navbar:
-    home: Início
+    stats: Estatísticas
     dashboard: Dashboard
     admins: Administradores
     users: Usuários
@@ -23,17 +23,48 @@
     search:
       descr: Buscar
       placeholder: Pesquisar questão...
-      sign_off_placeholder: Favor logar-se para buscar e responder questões...
+      sign_off_placeholder: Se logue para buscar e responder as questões...
   messages:
     list: Lista de %{model}
+  form:
+    checkbox:
+      correct?: Correta?
+  sessions_page:
+    forgot_password: Esqueceu sua senha?
+    recover_password_text: Recuperar minha senha?
+    change_password: Alteração de senha
+    btn_change_password: Alterar senha
+  # LAYOUTS
   site_layout:
-    welcome: Bem vinda(o)
+    header:
+      welcome: "Olá, seja muito bem-vinda(o) ao Time to Answer!"
+      main_descr: "Somos um fórum de perguntas e respostas e temos uma grande variedade de assuntos e áreas."
+      sign_message: Acesse ou crie sua conta para começar a interagir e talvez encontrar respostas...
+    welcome: Bem-vinda(o)
     email: "%{current_user_email}"
     logged: Você está logada(o)!
     posts_list: Últimas questões cadastradas
     search:
       result: Foram encontradas %{questions_count} perguntas como resultados para a pesquisa "%{search_term}"...
       subject: Mostrando questões sobre o assunto "%{subject}"...
-  form:
-    checkbox:
-      correct?: Correta?
+    signed_off_warning: Para ver mais questões, crie ou acesse sua conta...
+    buttons:
+      sign_in: Logar
+      sign_up: Criar conta
+  user_layout:
+    home:
+      profile_stats: Estatísticas do perfil
+  admin_layout:
+    home:
+      profile_stats: Estatísticas do administrador
+      users:
+        title: Usuários
+        text: Total de usuários registrados no sistema.
+      subjects:
+        title: Assuntos/Áreas
+        text: Total de assuntos/áreas registrados no sistema.
+      questions:
+        title: Perguntas
+        text: Total de perguntas registradas no sistema.
+  
+

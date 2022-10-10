@@ -21,6 +21,9 @@
         <% end %>
       
         <%= f.submit "Login", class: "btn btn-lg btn-primary btn-block shadow-sm" %>
+        <div>
+          <%= link_to t('sessions_page.forgot_password'), new_user_password_path, class: "btn btn-link" %>
+        </div>
       </div>
       
     <% end %>

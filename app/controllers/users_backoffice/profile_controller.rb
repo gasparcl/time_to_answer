@@ -24,18 +24,18 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
    # ╠═╝╠╦╝║╚╗╔╝╠═╣ ║ ║╣   ║║║║╣  ║ ╠═╣║ ║ ║║╚═╗
    # ╩  ╩╚═╩ ╚╝ ╩ ╩ ╩ ╚═╝  ╩ ╩╚═╝ ╩ ╩ ╩╚═╝═╩╝╚═╝
    private
-   def set_user 
-      @user = User.find(current_user.id)
-   end
-
-   def params_user
-      params.require(:user).permit(:first_name, :last_name, :email, :password, 
-         :password_confirmation, user_profile_attributes: [:id, :address, :gender, :birthdate, :avatar])
-   end
-
-   def verify_password
-      if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
-         params[:user].extract!(:password, :password_confirmation)
+      def set_user 
+         @user = User.find(current_user.id)
       end
-   end
+
+      def params_user
+         params.require(:user).permit(:first_name, :last_name, :email, :password, 
+            :password_confirmation, user_profile_attributes: [:id, :address, :gender, :birthdate, :avatar])
+      end
+
+      def verify_password
+         if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+            params[:user].extract!(:password, :password_confirmation)
+         end
+      end
 end

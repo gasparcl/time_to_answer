@@ -13,4 +13,11 @@ module SiteHelper
          t('site_layout.search.subject', subject: params[:subject])
       end  
    end
+
+   def avatar_url
+      if current_user.user_profile.avatar != nil
+         avatar = current_user.user_profile.avatar
+         avatar.attached? ? avatar : 'img.jpg'
+      end
+   end
 end

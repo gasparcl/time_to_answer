@@ -1,12 +1,12 @@
 <div>
    <div class="jumbotron py-4 px-5 mb-4 mt-3 bg-light border border-opacity-25 rounded-2 shadow-sm">
-      <h1 class="display-5">Hello, welcome to Time to Answer!</h1>
-      <p class="lead">This is a simple webapp about Q&A that includes a lot of interesting subjects and areas </p>
+      <h1 class="display-5"><%= t('site_layout.header.welcome') %></h1>
+      <p class="lead"><%= t('site_layout.header.main_descr') %></p>
       <% unless user_signed_in? %>
          <hr class="my-4">
-         <p>Create your account or sign in to start interacting, maybe seeking for answers...</p>
-         <%= link_to "Create account", new_user_registration_path, class:"btn btn-primary btn-lg", role:"button" %>  
-         <%= link_to "Sign in", new_user_session_path, class:"btn btn-primary btn-lg", role:"button" %>
+         <p><%= t('site_layout.header.sign_message') %></p>
+         <%= link_to t('site_layout.buttons.sign_in'), new_user_session_path, class:"btn btn-primary", role:"button" %>
+         <%= link_to t('site_layout.buttons.sign_up'), new_user_registration_path, class:"btn btn-secondary", role:"button" %>  
       <% else %>
          <span> <%=t('site_layout.welcome')  %>,</span>
          <span> <b><%=  t('site_layout.email', current_user_email: current_user&.email) %></b>, </span>
@@ -91,9 +91,18 @@
       </div>
    <% end %>
 <% end %>
-<% if user_signed_in? %>
-   <%# PAGINATION %>
-   <div class="d-flex justify-content-center">
+
+<%# PAGINATION %>
+<div class="d-flex justify-content-center">
+   <% if user_signed_in? %>
       <%= paginate @questions %>
-   </div>
-<% end %>
+   <% else %>
+      <div class="py-2 rounded-2 w-50 shadow-sm d-flex align-items-center justify-content-between alert alert-warning">
+         <%= (t('site_layout.signed_off_warning')) %>
+         <div>
+            <%= link_to t('site_layout.buttons.sign_in'), new_user_session_path, class:"btn btn-sm btn-outline-primary", role:"button" %>
+            <%= link_to t('site_layout.buttons.sign_up'), new_user_registration_path, class:"btn btn-sm btn-outline-secondary", role:"button" %>  
+         </div>
+      </div> 
+   <% end %>
+</div>

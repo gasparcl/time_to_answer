@@ -2,7 +2,10 @@ namespace :dev do
   # ╔╦╗╔═╗╔╦╗╔═╗╔╦╗╔═╗╔╦╗╔═╗                   
   # ║║║║╣  ║ ╠═╣ ║║╠═╣ ║ ╠═╣                   
   # ╩ ╩╚═╝ ╩ ╩ ╩═╩╝╩ ╩ ╩ ╩ ╩
+  counter = 0
   DEFAULT_PASSWORD = '123456'
+  DEFAULT_FIRST_NAME = 'TEST'
+  DEFAULT_LAST_NAME = 'USER TEST'
   DEFAULT_FILES_PATH = File.join(Rails.root, 'lib', 'tmp')
 
   # ╔╦╗╔═╗╦╔╗╔  ╔╦╗╔═╗╔═╗╦╔═            
@@ -18,6 +21,7 @@ namespace :dev do
       show_spinner("Creating default admin account") { %x(rails dev:add_default_admin) }
       show_spinner("Creating extra admin accounts") { %x(rails dev:add_extra_admins) }
       show_spinner("Creating default user account") { %x(rails dev:add_default_user) }
+      show_spinner("Creating extra user accounts") { %x(rails dev:add_extra_users) }
       show_spinner("Seeding default subjects") { %x(rails dev:add_subjects) }
       show_spinner("Seeding questions and answers") { %x(rails dev:add_questions) }
     else
@@ -39,7 +43,7 @@ namespace :dev do
 
   desc "Create extra admin accounts"
   task add_extra_admins: :environment do
-    35.times do |i|
+    9.times do |i|
       current_password = Faker::Internet.password
       Admin.create!(
         email: Faker::Internet.email,
@@ -54,8 +58,23 @@ namespace :dev do
     User.create!(
       email: 'user@user.com',
       password: DEFAULT_PASSWORD,
-      password_confirmation: DEFAULT_PASSWORD
+      password_confirmation: DEFAULT_PASSWORD,
+      first_name: DEFAULT_FIRST_NAME,
+      last_name: DEFAULT_LAST_NAME
     )
+  end
+
+  desc "Create extra user accounts"
+  task add_extra_users: :environment do
+    24.times do |i|
+      User.create!(
+        email: Faker::Internet.email,
+        password: DEFAULT_PASSWORD,
+        password_confirmation: DEFAULT_PASSWORD,
+        first_name: DEFAULT_FIRST_NAME,
+        last_name: `#{DEFAULT_LAST_NAME} - #{counter += 1}`
+      )
+    end  
   end
 
   desc "Add default subjects"

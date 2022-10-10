@@ -16,9 +16,8 @@
          </li>
       <% else %>
          <li class="nav-item dropdown d-flex">
-            <%= image_tag avatar_url, alt:"...", class:"img-circle profile__img-nav shadow-sm mt-1", id:"imgAvatarNav"%>
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-            <%= current_user.email %>
+               <%= current_user.email %>
             </a>
             <ul class="dropdown-menu mt-5">
             <li>

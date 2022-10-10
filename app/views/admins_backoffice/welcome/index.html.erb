@@ -1,2 +1,48 @@
-<h1>AdminsBackoffice::Welcome#index</h1>
-<p>Find me in app/views/admins_backoffice/welcome/index.html.erb</p>
+<h1><%= t('admin_layout.home.profile_stats') %></h1>
+<hr>
+<div class="d-flex justify-content-between align-items-center gap-4">
+   <div class="card my-3 shadow-sm flex-fill">
+      <div class="card-header px-3 py-4">
+         <h5 class="mb-0 py-1 d-flex align-items-center justify-content-between gap-2">
+            <b class="display-5 px-3 border border-3 border-dark border-opacity-25 rounded-3"><%= @total_users %></b>
+            <i class="fa fa-users fa-2x text-primary border border-3 border-primary rounded-circle p-2 d-flex align-items-center justify-content-center" style="height: 60px; width: 60px;"></i>
+         </h5>
+      </div>
+      <div class="card-body px-4 py-4">
+         <h3><%= t('admin_layout.home.users.title') %></h3>
+         <p class="card-text px-3">
+            <%= t('admin_layout.home.users.text') %>
+         </p>
+      </div>
+   </div>
+
+   <div class="card my-3 shadow-sm flex-fill">
+      <div class="card-header px-3 py-4">
+         <h5 class="mb-0 py-1 d-flex align-items-center justify-content-between gap-2">
+            <b class="display-5 px-3 border border-3 border-dark border-opacity-25 rounded-3"><%= @total_subjects %></b>
+            <i class="fa fa-file-text fa-2x text-dark border border-3 border-dark rounded-circle p-2 d-flex align-items-center justify-content-center" style="height: 60px; width: 60px;"></i>
+         </h5>
+      </div>
+      <div class="card-body px-4 py-4">
+         <h3><%= t('admin_layout.home.users.title') %></h3>
+         <p class="card-text px-3">
+            <%= t('admin_layout.home.users.text') %>
+         </p>
+      </div>
+   </div>
+
+   <div class="card my-2 shadow-sm flex-fill">
+      <div class="card-header px-3 py-4">
+         <h5 class="mb-0 py-1 d-flex align-items-center justify-content-between gap-2 ">
+            <b class="display-5 px-3 border border-3 border-dark border-opacity-25 rounded-3"><%= @total_questions %></b>
+            <i class="fa fa-question fa-3x text-success border border-3 border-success rounded-circle p-2 d-flex align-items-center justify-content-center" style="height: 60px; width: 60px;"></i>
+         </h5>
+      </div>
+      <div class="card-body px-4 py-4">
+         <h3><%= t('admin_layout.home.questions.title') %></h3>
+         <p class="card-text px-3">
+            <%= t('admin_layout.home.questions.text') %>
+         </p>
+      </div>
+   </div>
+</div>

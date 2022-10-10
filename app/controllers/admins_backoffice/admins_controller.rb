@@ -25,6 +25,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
 
   def update
     if @admin.update(get_params_admin)
+      AdminMailer.update_email(current_admin, @admin).deliver_now
       bypass_sign_in(@admin)
       redirect_to admins_backoffice_admins_path, notice: "Account has been updated"
     else 
@@ -45,17 +46,17 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   # ╩  ╩╚═╩ ╚╝ ╩ ╩ ╩ ╚═╝  ╩ ╩╚═╝ ╩ ╩ ╩╚═╝═╩╝╚═╝
   private  
 
-  def set_admin
-    @admin = Admin.find(params[:id]) #Parâmetro vem da URL, setado em routes, com o resources
-  end
-
-  def get_params_admin
-    params.require(:admin).permit(:email, :password, :password_confirmation)
-  end
-
-  def verify_password
-    if params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
-      params[:admin].extract!(:password, :password_confirmation)
+    def set_admin
+      @admin = Admin.find(params[:id]) #Parâmetro vem da URL, setado em routes, com o resources
     end
-  end
+
+    def get_params_admin
+      params.require(:admin).permit(:email, :password, :password_confirmation)
+    end
+
+    def verify_password
+      if params[:admin][:password].blank? && params[:admin][:password_confirmation].blank?
+        params[:admin].extract!(:password, :password_confirmation)
+      end
+    end
 end

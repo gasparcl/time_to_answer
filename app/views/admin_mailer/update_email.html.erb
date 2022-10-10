@@ -1,0 +1,7 @@
+<div style="padding: 2rem 1.5rem;">
+   
+   <div style="display: flex; flex-direction: column; justify-content: start;">
+      <h3> <%=@admin.email %>,</h3>
+   </div>    
+   <p style="padding: 0 1rem;">Seus dados foram atualizados por <b> <%= @current_admin.email %> </b>, às <%= @admin.updated_at.strftime("%T, em %d/%m/%Y") %>.</p>
+</div>

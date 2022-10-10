@@ -43,11 +43,11 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
    # ╩  ╩╚═╩ ╚╝ ╩ ╩ ╩ ╚═╝  ╩ ╩╚═╝ ╩ ╩ ╩╚═╝═╩╝╚═╝
    private  
 
-   def set_subject
-      @subject = Subject.find(params[:id]) #Parâmetro vem da URL, setado em routes, com o resources
-   end
+      def set_subject
+         @subject = Subject.find(params[:id]) #Parâmetro vem da URL, setado em routes, com o resources
+      end
 
-   def get_params_subject
-      params.require(:subject).permit(:description)
-   end
+      def get_params_subject
+         params.require(:subject).permit(:description)
+      end
 end

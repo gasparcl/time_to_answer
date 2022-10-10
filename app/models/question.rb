@@ -6,6 +6,11 @@ class Question < ApplicationRecord
   has_many :answers
   accepts_nested_attributes_for :answers, reject_if: :all_blank, allow_destroy: true
   
+  # ╔═╗╔═╗╦  ╦  ╔╗ ╔═╗╔═╗╦╔═╔═╗                       
+  # ║  ╠═╣║  ║  ╠╩╗╠═╣║  ╠╩╗╚═╗                       
+  # ╚═╝╩ ╩╩═╝╩═╝╚═╝╩ ╩╚═╝╩ ╩╚═╝
+  after_create :set_statistics
+
   # Kaminari Pagination
   paginates_per 10
 
@@ -39,5 +44,13 @@ class Question < ApplicationRecord
     .order('created_at desc')
     .page(page)
   }
+
+  # ╔═╗╦═╗╦╦  ╦╔═╗╔╦╗╔═╗  ╔╦╗╔═╗╔╦╗╦ ╦╔═╗╔╦╗╔═╗       
+  # ╠═╝╠╦╝║╚╗╔╝╠═╣ ║ ║╣   ║║║║╣  ║ ╠═╣║ ║ ║║╚═╗       
+  # ╩  ╩╚═╩ ╚╝ ╩ ╩ ╩ ╚═╝  ╩ ╩╚═╝ ╩ ╩ ╩╚═╝═╩╝╚═╝
+  private
+    def set_statistics
+      AdminStatistic.set_event(AdminStatistic::EVENTS[:total_questions])
+    end
 
 end
