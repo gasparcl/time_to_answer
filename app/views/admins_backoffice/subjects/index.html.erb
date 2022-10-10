@@ -8,9 +8,12 @@
             <th> <%= translate_attr(@subjects, :description) %> </th>
             <th> <%= translate_attr(@subjects, :questions) %> </th>
             <th><%= translate_attr(@subjects, :created_at) %></th>
-            <th class="text-center">
-               <%= link_to new_admins_backoffice_subject_path, class:"btn btn-sm btn-success btn-circle col-10", title:"Add subject/area" do %>
-                     <i class='fa fa-plus'></i>
+            <th class="text-center d-flex flex-column gap-1">
+               <%= link_to new_admins_backoffice_subject_path, class:"btn btn-sm btn-success", title:"Add subject/area" do %>
+                     <i class='fa fa fa-plus'></i>
+               <% end %>
+               <%= link_to admins_backoffice_subjects_path(format: :pdf), target: "_blank", class:"btn btn-sm btn-danger", title:"Generate PDF" do %>
+                     <i class='fa fa-file-pdf-o'></i>
                <% end %>
             </th>
          </tr>

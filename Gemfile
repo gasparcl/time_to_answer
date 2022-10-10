@@ -13,6 +13,7 @@ gem 'kaminari-i18n'
 gem 'open-uri'
 gem 'bootstrap', '~> 4.6'
 gem 'cocoon'
+gem 'prawn-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
